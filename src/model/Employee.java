@@ -12,11 +12,11 @@ public class Employee extends Person {
     private int entryYear;
     private double salary;
 
-    public Employee(String personalCode, String fullName, int birthYear, int entryYear, double salary) {
+/*    public Employee(String personalCode, String fullName, int birthYear, int entryYear, double salary) {
         super(personalCode, fullName, birthYear);
         this.salary = salary;
         this.entryYear = entryYear;
-    }
+    }*/
 
     public Employee(int id, String personalCode, String fullName, int birthYear, int entryYear, double salary) {
         super(id, personalCode, fullName, birthYear);
@@ -28,7 +28,7 @@ public class Employee extends Person {
     public String toString() {
         return "Employee{" +
                 super.toString() +
-                "entryYear=" + entryYear +
+                ", entryYear=" + entryYear +
                 ", salary=" + salary +
                 '}';
     }

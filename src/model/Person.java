@@ -28,7 +28,7 @@ public class Person {
         return "id=" + id +
                 ", personalCode='" + personalCode + '\'' +
                 ", fullName='" + fullName + '\'' +
-                ", birthYear=" + birthYear + '\\'
+                ", birthYear=" + birthYear + '\''
                 ;
     }
 }

@@ -15,17 +15,17 @@ public class EmployeeDao extends BaseDao {
     public EmployeeDao() throws ClassNotFoundException, SQLException {
     }
 
-/*    public List<Employee> readAll() throws SQLException {
+    public List<Employee> readAllSortedByEntryYear() throws SQLException {
         List<Employee> employees = new ArrayList<>();
         if (connection != null) {
-            String sql = "SELECT * FROM employees;";
+            String sql = "SELECT * FROM employees ORDER BY entry_year;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next())
                 employees.add(create(resultSet));
         }
         return employees;
-    }*/
+    }
 
     private Employee create(ResultSet resultSet) throws SQLException {
         return new Employee(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3),
@@ -42,23 +42,5 @@ public class EmployeeDao extends BaseDao {
                 years.add(resultSet.getInt(1));
         }
         return years;
-    }
-
-    public List<List<Employee>> returnAllEmployeesGroupByEntryYear() throws SQLException {
-        List<Integer> years = findAllUniqueEntryYear();
-        List<List<Employee>> listOfEmployeesGroupByEntryYear = new ArrayList<>();
-        if (connection != null) {
-            for (Integer year : years) {
-                List<Employee> employees = new ArrayList<>();
-                String sql = "SELECT * FROM employees WHERE entry_year=? ORDER BY salary;";
-                PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setInt(1, year);
-                ResultSet resultSet = preparedStatement.executeQuery();
-                while (resultSet.next())
-                    employees.add(create(resultSet));
-                listOfEmployeesGroupByEntryYear.add(employees);
-            }
-        }
-        return listOfEmployeesGroupByEntryYear;
     }
 }

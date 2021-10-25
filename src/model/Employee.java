@@ -8,7 +8,7 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-public class Employee extends Person {
+public class Employee extends Person implements Comparable<Employee> {
     private int entryYear;
     private double salary;
 
@@ -31,5 +31,14 @@ public class Employee extends Person {
                 ", entryYear=" + entryYear +
                 ", salary=" + salary +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        if (this.entryYear == o.entryYear)
+            return Double.compare(this.salary, o.salary);
+        else if (this.entryYear < o.entryYear)
+            return 1;
+        else return -1;
     }
 }

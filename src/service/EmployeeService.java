@@ -15,11 +15,12 @@ public class EmployeeService {
     public EmployeeService() throws SQLException, ClassNotFoundException {
     }
 
-/*    public List<Employee> returnAll() throws SQLException {
-        return employeeDao.readAll();
-    }*/
-
-    public List<List<Employee>> returnAllEmployeesGroupByEntryYear() throws SQLException {
-        return employeeDao.returnAllEmployeesGroupByEntryYear();
+    public List<Employee> readSortedEmployees() throws SQLException {
+        return employeeDao.readAllSortedByEntryYear();
     }
+
+    public List<Integer> returnUniqueEntryYear() throws SQLException {
+        return employeeDao.findAllUniqueEntryYear();
+    }
+
 }

@@ -11,6 +11,7 @@ import java.util.List;
  */
 public class EmployeeService {
     EmployeeDao employeeDao = new EmployeeDao();
+    int nowYear = 1400;
 
     public EmployeeService() throws SQLException, ClassNotFoundException {
     }
@@ -19,8 +20,8 @@ public class EmployeeService {
         return employeeDao.readAllSortedByEntryYear();
     }
 
-    public List<Integer> returnUniqueEntryYear() throws SQLException {
-        return employeeDao.findAllUniqueEntryYear();
+    public List<Integer> returnUniqueEntryYearOfLastFiveYears() throws SQLException {
+        return employeeDao.findAllUniqueEntryYear(nowYear);
     }
 
 }

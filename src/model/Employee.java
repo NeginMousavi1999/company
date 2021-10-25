@@ -12,12 +12,6 @@ public class Employee extends Person implements Comparable<Employee> {
     private int entryYear;
     private double salary;
 
-/*    public Employee(String personalCode, String fullName, int birthYear, int entryYear, double salary) {
-        super(personalCode, fullName, birthYear);
-        this.salary = salary;
-        this.entryYear = entryYear;
-    }*/
-
     public Employee(int id, String personalCode, String fullName, int birthYear, int entryYear, double salary) {
         super(id, personalCode, fullName, birthYear);
         this.salary = salary;

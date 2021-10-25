@@ -54,7 +54,7 @@ public class Main {
     private static void showResultsSecondTry() throws SQLException {
         List<Employee> allEmployees = sortEmployeesBySalary(employeeService.readSortedEmployees());
 
-        List<Integer> years = employeeService.returnUniqueEntryYear();
+        List<Integer> years = employeeService.returnUniqueEntryYearOfLastFiveYears();
 
         for (Integer year : years) {
             List<Employee> employeesWithThisYear = returnEmployeesWithSpecificEntryYear(allEmployees, year);

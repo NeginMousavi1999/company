@@ -29,7 +29,7 @@ public class EmployeeDao extends BaseDao {
 
     private Employee create(ResultSet resultSet) throws SQLException {
         return new Employee(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3),
-                resultSet.getInt(4), resultSet.getInt(5), resultSet.getDouble(6));
+                resultSet.getInt(4), resultSet.getInt(5), resultSet.getInt(6));
     }
 
     public List<Integer> findAllUniqueEntryYear(int now) throws SQLException {

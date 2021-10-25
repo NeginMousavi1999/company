@@ -10,9 +10,9 @@ import lombok.Setter;
 @Getter
 public class Employee extends Person implements Comparable<Employee> {
     private int entryYear;
-    private double salary;
+    private int salary;
 
-    public Employee(int id, String personalCode, String fullName, int birthYear, int entryYear, double salary) {
+    public Employee(int id, String personalCode, String fullName, int birthYear, int entryYear, int salary) {
         super(id, personalCode, fullName, birthYear);
         this.salary = salary;
         this.entryYear = entryYear;

@@ -58,7 +58,7 @@ public class Main {
 
         for (Integer year : years) {
             List<Employee> employeesWithThisYear = returnEmployeesWithSpecificEntryYear(allEmployees, year);
-            double maxSalary = employeesWithThisYear.get(employeesWithThisYear.size() - 1).getSalary();
+            int maxSalary = employeesWithThisYear.get(employeesWithThisYear.size() - 1).getSalary();
 
             System.out.printf("------------------------- %d -------------------------\n", year);
             System.out.println("\t********** from 1 millions to 5 millions **********");
@@ -68,7 +68,7 @@ public class Main {
             printEmployeesInCategory(5000000, 10000000, employeesWithThisYear);
             System.out.println();
             System.out.println("\t****************** more than 10 *******************");
-            printEmployeesInCategory(10000000, (int) maxSalary, employeesWithThisYear);
+            printEmployeesInCategory(10000000, maxSalary, employeesWithThisYear);
             System.out.println();
 
             printDash();

@@ -23,10 +23,27 @@ public class Main {
         showResultsSecondTry();
     }
 
-    private static void printEmployeesInCategory(int low, int high, List<Employee> employees) {
-        for (Employee employee : employees) {
-            if (employee.getSalary() > low && employee.getSalary() <= high)
-                System.out.println("\t" + employee);
+    private static void showResultsSecondTry() throws SQLException {
+        List<Employee> allEmployees = sortEmployeesBySalary(employeeService.readSortedEmployees());
+
+        List<Integer> years = employeeService.returnUniqueEntryYearOfLastFiveYears();
+
+        for (Integer year : years) {
+            List<Employee> employeesWithThisYear = returnEmployeesWithSpecificEntryYear(allEmployees, year);
+            int maxSalary = employeesWithThisYear.get(employeesWithThisYear.size() - 1).getSalary();
+
+            System.out.printf("------------------------- %d -------------------------\n", year);
+            System.out.println("\t********** from 1 millions to 5 millions **********");
+            printEmployeesInCategory(1000000, 5000000, employeesWithThisYear);
+            System.out.println();
+            System.out.println("\t********* from 5 millions to 10 millions **********");
+            printEmployeesInCategory(5000000, 10000000, employeesWithThisYear);
+            System.out.println();
+            System.out.println("\t****************** more than 10 *******************");
+            printEmployeesInCategory(10000000, maxSalary, employeesWithThisYear);
+            System.out.println();
+
+            printDash();
         }
     }
 
@@ -51,27 +68,10 @@ public class Main {
         return specificEmployees;
     }
 
-    private static void showResultsSecondTry() throws SQLException {
-        List<Employee> allEmployees = sortEmployeesBySalary(employeeService.readSortedEmployees());
-
-        List<Integer> years = employeeService.returnUniqueEntryYearOfLastFiveYears();
-
-        for (Integer year : years) {
-            List<Employee> employeesWithThisYear = returnEmployeesWithSpecificEntryYear(allEmployees, year);
-            int maxSalary = employeesWithThisYear.get(employeesWithThisYear.size() - 1).getSalary();
-
-            System.out.printf("------------------------- %d -------------------------\n", year);
-            System.out.println("\t********** from 1 millions to 5 millions **********");
-            printEmployeesInCategory(1000000, 5000000, employeesWithThisYear);
-            System.out.println();
-            System.out.println("\t********* from 5 millions to 10 millions **********");
-            printEmployeesInCategory(5000000, 10000000, employeesWithThisYear);
-            System.out.println();
-            System.out.println("\t****************** more than 10 *******************");
-            printEmployeesInCategory(10000000, maxSalary, employeesWithThisYear);
-            System.out.println();
-
-            printDash();
+    private static void printEmployeesInCategory(int low, int high, List<Employee> employees) {
+        for (Employee employee : employees) {
+            if (employee.getSalary() > low && employee.getSalary() <= high)
+                System.out.println("\t" + employee);
         }
     }
 

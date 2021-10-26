@@ -24,7 +24,7 @@ public class Main {
     }
 
     private static void showResultsSecondTry() throws SQLException {
-        List<Employee> allEmployees = sortEmployeesBySalary(employeeService.readSortedEmployees());
+        List<Employee> allEmployees = sortEmployeesBySalary(employeeService.readSortedEmployeesByEntryYear());
 
         List<Integer> years = employeeService.returnUniqueEntryYearOfLastFiveYears();
 

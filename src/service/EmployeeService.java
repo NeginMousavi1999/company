@@ -16,7 +16,7 @@ public class EmployeeService {
     public EmployeeService() throws SQLException, ClassNotFoundException {
     }
 
-    public List<Employee> readSortedEmployees() throws SQLException {
+    public List<Employee> readSortedEmployeesByEntryYear() throws SQLException {
         return employeeDao.readAllSortedByEntryYear();
     }
 

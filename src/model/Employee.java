@@ -28,11 +28,9 @@ public class Employee extends Person implements Comparable<Employee> {
     }
 
     @Override
-    public int compareTo(Employee o) {
-        if (this.entryYear == o.entryYear)
-            return Double.compare(this.salary, o.salary);
-        else if (this.entryYear < o.entryYear)
-            return 1;
-        else return -1;
+    public int compareTo(Employee otherEmployee) {
+        if (this.entryYear == otherEmployee.entryYear)
+            return Double.compare(this.salary, otherEmployee.salary);
+        else return Integer.compare(this.entryYear, otherEmployee.entryYear);
     }
 }

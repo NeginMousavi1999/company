@@ -3,6 +3,7 @@ import service.EmployeeService;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -48,14 +49,7 @@ public class Main {
     }
 
     private static List<Employee> sortEmployeesBySalary(List<Employee> employees) {
-        //!!!!!! man ini ke comment kardamo neveshte budam vali intelij chizi ke tu khate 42 e ro pishnahad kard !!!!!!
-/*        employees.sort(new Comparator<Employee>() {
-            @Override
-            public int compare(Employee o1, Employee o2) {
-                return o1.compareTo(o2);
-            }
-        });*/
-        employees.sort(Employee::compareTo);
+        Collections.sort(employees);
         return employees;
     }
 

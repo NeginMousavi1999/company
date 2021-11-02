@@ -21,10 +21,10 @@ public class Main {
     }
 
     public static void main(String[] args) throws SQLException {
-        showResultsSecondTry();
+        showResults();
     }
 
-    private static void showResultsSecondTry() throws SQLException {
+    private static void showResults() throws SQLException {
         List<Employee> allEmployees = sortEmployeesBySalary(employeeService.readSortedEmployeesByEntryYear());
 
         List<Integer> years = employeeService.returnUniqueEntryYearOfLastFiveYears();

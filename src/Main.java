@@ -70,6 +70,6 @@ public class Main {
     }
 
     private static void printDash() {
-        System.out.println("----------------------------------------------------");
+        System.out.println("--------------------------------------------------------");
     }
 }

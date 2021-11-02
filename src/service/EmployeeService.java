@@ -21,7 +21,7 @@ public class EmployeeService {
     }
 
     public List<Integer> returnUniqueEntryYearOfLastFiveYears() throws SQLException {
-        return employeeDao.findAllUniqueEntryYear(nowYear);
+        return employeeDao.findAllUniqueEntryYear(nowYear, 5);
     }
 
 }

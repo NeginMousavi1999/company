@@ -32,12 +32,13 @@ public class EmployeeDao extends BaseDao {
                 resultSet.getInt(4), resultSet.getInt(5), resultSet.getInt(6));
     }
 
-    public List<Integer> findAllUniqueEntryYear(int now) throws SQLException {
+    public List<Integer> findAllUniqueEntryYear(int now, int from) throws SQLException {
         List<Integer> years = new ArrayList<>();
         if (connection != null) {
-            String sql = "SELECT DISTINCT entry_year from employees WHERE entry_year>?-5";
+            String sql = "SELECT DISTINCT entry_year from employees WHERE entry_year>?-?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, now);
+            preparedStatement.setInt(2, from);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next())
                 years.add(resultSet.getInt(1));
